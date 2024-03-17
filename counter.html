@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <style>
+        #lcount {
+            text-align: center;
+            display: block;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 10em;
+        }
+
+        .buttons {
+            margin: 5px 5px;
+            padding: 10px 30px;
+            font-size: 1.2em;
+            color: rgb(246, 244, 241);
+            background-color: rgb(27, 80, 111);
+            border-radius: 0.5em;
+            cursor: pointer;
+            transition: 0.25s;
+            border-color: rgba(240, 248, 255, 0);
+        }
+        #decrease:hover {
+            background-color: rgb(196, 121, 24);
+        }
+        #increase:hover {
+            background-color: rgb(92, 222, 48);
+        }
+        #reset:hover {
+            background-color: rgb(64, 138, 207);
+        }
+    </style>
+</head>
+<body>
+    <label for="count" id="lcount">0</label>
+    <br>
+    <div id="btnContainer" style="text-align: center;">
+        <button class="buttons" id="decrease" type="submit">Decrease</button>
+        <button class="buttons" id="reset" type="submit">Reset</button>
+        <button class="buttons" id="increase" type="submit">Increase</button>
+    </div>
+
+    <script>
+        let counter = 0;
+        let value = 0;
+        function change(value) {
+            if (value == 0) {
+                counter = 0;
+            } else {
+                counter += value;
+            }
+            document.getElementById("lcount").textContent = counter;
+        }
+        
+        document.getElementById("increase").onclick = function() {
+            change(1);
+        }
+
+        document.getElementById("decrease").onclick = function() {
+            change(-1);
+        }
+        document.getElementById("reset").onclick = function() {
+            change(0);
+        }
+        change(value);  
+    </script>
+</body>
+</html>

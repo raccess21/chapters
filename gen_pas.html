@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #len {
+            width: 50em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generate Password</h1>
+    <label for="len">Length: </label>
+    <input type="number" min="1" value="15" id="len">
+    <br>
+    <div id="options">
+        <input type="checkbox" id="upr">
+        <label for="upr">Uppercase</label>
+        <br>
+        <input type="checkbox" id="lwr">
+        <label for="lwr">Lowercase</label>
+        <br>
+        <input type="checkbox" id="sym">
+        <label for="sym">Symbol</label>
+        <br>
+        <input type="checkbox" id="num">
+        <label for="num">Numbers</label>
+        <br>
+    </div>
+    <button id="create" type="button">Create</button>
+    <p id="pass"></p>
+    <script>
+        const create = document.getElementById("create");
+        const pass = document.getElementById("pass");
+        const len = document.getElementById("len");
+        
+        function generator1(len, allowedChars) {
+            let pas = '';
+            for (let i = 0; i < len; i++) {
+                pas += allowedChars[Math.floor(Math.random() * allowedChars.length)];
+            }
+            return pas;
+        }
+
+        function generatePas(len, inLwr, inUpr, inSym, inNum) {
+            if (len <= 0) {
+                return "Password length must be greater than 0."
+            }
+            
+            const alphaLwr = "abcdefghijklmnopqrstuvwxyz";
+            const alphaUpr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            const alphaNum = "0123456789";
+            const alphaSym = "@#$%^&*()";
+
+            let allowedChars = "";
+            allowedChars += inLwr ? alphaLwr : "";
+            allowedChars += inUpr ? alphaUpr : "";
+            allowedChars += inNum ? alphaNum : "";
+            allowedChars += inSym ? alphaSym : "";
+
+            if (allowedChars.length == 0) {
+                return "At least one condition needs to be selected."
+            }
+
+            return "Generated Password: " + generator1(len, allowedChars);
+        }
+
+        create.onclick = function () {
+            const plen = Number(len.value);
+            const inLwr = document.getElementById("lwr").checked;
+            const inUpr = document.getElementById("upr").checked;
+            const inSym = document.getElementById("sym").checked;
+            const inNum = document.getElementById("num").checked;
+
+            const pas = generatePas(plen, inLwr, inUpr, inSym, inNum);
+            pass.textContent = pas;
+        }
+    </script>
+</body>
+</html>

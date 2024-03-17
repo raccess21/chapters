@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess Number!!</title>
+</head>
+<body>
+    <script>
+        const minimum = 1;
+        const maximum = 100;
+        const ans = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+
+        let attempts = 0;
+        let guess;
+        let running = true;
+
+        while(running) {
+            guess = Number(window.prompt(`Guess a number between ${minimum-1} - ${maximum+1}.`));
+            
+            if(isNaN(guess)) {
+                window.alert("Please enter a valid number.")
+            } else if (guess < minimum || guess > maximum) {
+                window.alert(`Please enter a number between ${minimum-1} - ${maximum+1}.`);
+            } else {
+                attempts++;
+                if (guess < ans)        window.alert("Try Higher!!!");
+                else if (guess > ans)   window.alert("Try Lower!!!");
+                else {
+                    window.alert(`You guessed ${ans} in ${attempts} attempts!!`);
+                    running = false;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

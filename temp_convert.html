@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: hsl(0, 0%, 95%);
+            color: rgb(152, 93, 16);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <h1>Temperature Converter</h1>
+        <input type="number" id="textbox" value="0">
+        <br>
+        
+        <input type="radio" id="fah" name="unit">
+        <label for="fah">Celsius -> Fahrenheit</label>
+        <br>
+        <input type="radio" id="cel" name="unit">
+        <label for="cel">Fahrenheit -> Celsius</label>
+        <br>
+
+        <!-- <button type="button" onclick="convert()">Submit</button> -->
+        <button type="button" id="sub">Submit</button>
+
+        <p id="res">Select a unit</p>
+    </form>
+
+    <script>
+        const result = document.getElementById("res");
+        const inp = document.getElementById("textbox");
+        
+        function convert() {
+           let inpv = Number(inp.value);
+            if (document.getElementById("fah").checked) {
+                result.textContent = `${(inpv * 9 / 5 + 32).toFixed(2)}°F`;
+            }else if (document.getElementById("cel").checked) {
+                result.textContent = `${((inpv - 32) * 5 / 9).toFixed(2)}°C`;
+            } else {
+                result.textContent = "Select a unit";
+            }
+        }
+        
+        document.getElementById("sub").onclick = convert;
+    </script>
+</body>
+</html>

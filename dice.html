@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+        }
+        #num {
+            font-size: 5em;
+            display: flex; 
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+        .para {
+            padding: 5px 40px;
+        }
+        #sub {
+            font-size: 2em;
+            padding: 5px 25px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="num">
+        <p id="p0" class="para"></p>
+        <p id="p1" class="para"></p>
+        <p id="p2" class="para"></p>
+    </div>
+    <br>
+    <button id="sub">Throw</button>
+    <script>
+        document.getElementById("sub").onclick = function() {
+            for (let i=0; i<3; i++) {
+                document.getElementById(`p${i}`).textContent = Math.ceil(Math.random()*6);
+            }
+        }
+    </script>
+</body>
+</html>

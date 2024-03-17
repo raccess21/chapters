@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkboxes</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 2em;
+        }
+        #mySubmit {
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <input type="checkbox" name="" id="myCB">
+    <label for="myCB">Suscribe</label><br><br>
+
+    <input type="radio" id="myVisa" name="card">
+    <label for="myVisa">Visa</label><br>
+    <input type="radio" id="myMaster" name="card">
+    <label for="myMaster">MasterCard</label><br>
+    <input type="radio" id="myAM" name="card">
+    <label for="myAM">AmericanExpress</label><br><br>
+
+    <button type="submit" id="mySubmit">Submit</button>
+
+    <p id="subs"></p>
+    <p id="pay"></p>
+
+    <script>
+        const myCB = document.getElementById("myCB");
+        const visa = document.getElementById("myVisa");
+        const master = document.getElementById("myMaster");
+        const am = document.getElementById("myAM");
+        const submit = document.getElementById("mySubmit");
+        const subs = document.getElementById("subs");
+        const pay = document.getElementById("pay");
+
+        submit.onclick = function() {
+            if (myCB.checked) {
+                subs.textContent = "You are Subscribed!!!"
+            } else {
+                subs.textContent = "You are not Subscribed!!!"
+            }
+
+            if (master.checked) {
+                pay.textContent = "You are paying with MasterCard!!!"
+            } else if (am.checked) {
+                pay.textContent = "You are paying with American Express!!!"
+            } else if (visa.checked) {
+                pay.textContent = "You are paying with Visa!!!"
+            } else {
+                pay.textContent = "You must select a payment Method!!"
+            }
+        }
+
+    </script>
+</body>
+</html>

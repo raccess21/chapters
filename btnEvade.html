@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* #btns {
+            display: flex;
+            justify-content: center;
+        } */
+        p {
+            text-align: center;
+        }
+        #btns {
+            display: grid;
+            grid-template-rows: repeat(3, 1fr);
+            gap: 10px;
+            justify-content: center;
+        }
+        .btnrow {
+            border: 1px solid rgba(0, 0, 0, 0);
+            padding: 5px;
+        }
+        .spl {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="btns"></div>
+    <p id="status">Click the right button</p>
+    <script>
+        const btns = document.getElementById("btns");
+        
+        for (let row=0; row<3; row++) {
+            let btnrow = document.createElement("div");
+            btnrow.className = "btnrow";
+            btnrow.id = `btnr${row}`;
+            for (let col=0; col<3 ; col++) {
+                let btn = document.createElement("button")
+                btn.id = `btn${row}${col}`;
+                btn.textContent = `btn${row}${col}`;
+                btnrow.appendChild(btn);
+            }
+            btns.appendChild(btnrow);
+        }
+    </script>
+    <script>
+        var index, br;
+        
+        function initialise() {
+            index = [0, 2][Math.floor(Math.random() * 2)];
+            br = Math.floor(Math.random() * 3);
+        }
+
+        function all() {
+            initialise();
+            document.getElementById(`btn${br}${index}`).className = 'spl';
+
+            document.getElementById(`btn${br}${index}`).addEventListener("mouseleave", function() {
+                document.getElementById(`btn${br}${index}`).classList.remove("spl");
+                index = (Number(hi.id[4]) + 2) % 4;
+                document.getElementById(`btn${br}${index}`).className = 'spl';
+            });
+
+            document.getElementById(`btn${br}${index}`).onclick = function() {
+                document.getElementById(`btn${br}${index}`).classList.remove("spl");
+                br = Math.floor(Math.random() * 3);
+                document.getElementById(`btn${br}${index}`).className = 'spl';
+            }
+            
+            document.getElementById(`btn${br}1`).onclick = function() {
+                document.getElementById("status").textContent = "Winner!!!";
+            };
+        }
+        all();
+        </script>
+        </body>
+</html>

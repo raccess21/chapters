@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .para {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p class="para">Hi, How are you?</p>
+        <p class="para">
+            Times clicked 
+        </p>
+        <p><span id="clicked">0</span></p>
+        <button id="btm" >Click this</button>
+    </div>
+
+    <script>
+        let a = 0;
+        const btn = document.getElementById("btm");
+        const clicked = document.getElementById("clicked");
+        btn.addEventListener('click', function() {
+            a++;
+            clicked.textContent = a;
+        });
+    </script>
+</body>
+</html>
