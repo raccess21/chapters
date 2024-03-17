@@ -4,6 +4,7 @@ function populate(h1, label) {
     document.getElementsByTagusrname("label")[0].textContent = label;
 }
 
+
 // it is concise way of writing fun exp that are used only once
 // (param) => code
 const avg2 = (...num) => {
