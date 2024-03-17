@@ -4,6 +4,11 @@ function populate(h1, label) {
     document.getElementsByTagusrname("label")[0].textContent = label;
 }
 
+//logger to log message when coding on android
+function logger(msg) {
+    const div = document.getElementById("ps");
+    div.innerHTML += `<p style="font-size: medium;">${msg}</p>`;
+}
 
 // it is concise way of writing fun exp that are used only once
 // (param) => code
