@@ -104,8 +104,10 @@ function spreadParam() {
     restParam(games[0], games[1], games[2]);
 }
 
+//////////////////FUNCTIONS//////////////////////
 //functions perform some functions
 
+//USING DEFINITIONS
 //function_name(parameters)            //function definition
 function isEven(num) {
     return num % 2 === 0 ? true : false;
@@ -132,9 +134,25 @@ function sentence(...strings) {
 strFormat();
 console.log(isEven2(7));
 
+//USING FUNCTION EXPRESSIONS OR VARIABLES
 //in js functions can be used without definition by using 
-//function expression
+//function expression. 
+//the entire function can be passed as an argument
+// or it can stored in a variable
 
 setTimeout(function () {
     console.log(`Timeout!!`);
 }, 2000);
+
+const hello = function () {
+    console.log("Hello!!");
+}
+hello();
+
+
+//function expressions are helpful in
+// callback in async fun, higher order fun, closures, event listeners
+
+
+// ARROW FUNCTIONS
+const avg2 = ()

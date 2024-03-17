@@ -84,3 +84,8 @@ function ajeebAverage(val, next) {
     return (val + next)/2;
 }
 console.log("Ajeeb Average: " + [1,2,3,4,5,6].reduce(ajeebAverage));
+
+//ajeeb average using function expression
+console.log("Ajeeb Average fexp: " + [1,2,3,4,5,6].reduce(function (val, next) {
+    return (val + next) / 2;
+}));
