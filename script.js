@@ -23,3 +23,4 @@ const avg3 = (...num) => {
 
 console.log(`Average is ${avg3(1,2,3)}`);
 //testing web codespace
+//testing web codespace and pull
