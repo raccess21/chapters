@@ -5,6 +5,12 @@ function populate(h1, label) {
     document.getElementsByTagName("label")[0].textContent = label;
 }
 
+//logger to log message when coding on android
+function logger(msg) {
+    const div = document.getElementById("ps");
+    div.innerHTML += `<p style="font-size: medium;">${div.childElementCount}. ${msg}</p>`;
+}
+
 
 //string methods
 function strMethods() {
@@ -144,15 +150,34 @@ setTimeout(function () {
     console.log(`Timeout!!`);
 }, 2000);
 
+
 const hello = function () {
-    console.log("Hello!!");
-}
+    logger("ello mate!!");
+};
 hello();
 
+//ARROW FUNCTIONS
+// it is concise way of writing fun exp that are used only once
+// (param) => code
+const avg2 = (...num) => {
+    let sum = 0;
+    for (let n of num) {
+        sum += Number(n);
+    }
+    return sum/num.length;
+};
 
-//function expressions are helpful in
-// callback in async fun, higher order fun, closures, event listeners
+const avg3 = (...num) => {
+    return num.reduce(function (accu, ele) {
+        return accu + ele;
+    }) / num.length;
+};
+
+const squares = [1,2,3,4,5].map((element) => Math.pow(element, 2));
 
 
-// ARROW FUNCTIONS
-const avg2 = ()
+console.log(`Average is ${avg3(1,2,3)}`);
+logger(`Average is  : ${avg3(1,2,3)}`);
+logger(`Squares are : ${squares}`);
+//testing web codespace
+//testing web codespace and pull
