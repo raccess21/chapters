@@ -30,15 +30,16 @@ logger(this);
 ///////////CONSTRUTORS construct objects
 
 function cPerson(name, age, sign) {
-    this.name = name,
-    this.age = age,
-    this.sign = sign,
-    this.callSign =  function () {return caller(this.age, this.name, this.sign);};
+    this.name = name;
+    this.age = age;
+    this.sign = sign;
+    // this.callSign = caller(this.age, this.name, this.sign);
+    this.callSign = `${this.age} ${this.name} ${this.sign}`;
     return this;
 }
 
 const motu = cPerson("motu", 50, "modak");
-logger(motu.callSign());
+logger(motu.callSign);
 
 
 //CLASS are bluprints for objects for encapsulation of properties and method
