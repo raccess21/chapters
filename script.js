@@ -122,10 +122,10 @@ class Indain extends Pearson {
 }
 
 const feriWala = new Indain(); 
-logger(feriWala.country);               //Indain feriwala has country property
-logger(feriWala.indainTrue());          //Indain feriwala inherited indainTrue method from Pearson class
-feriWala.changeSalute();                //feriwala accessing it's changeSalute method
-logger(feriWala.wantToSalute);          //now want to salute is set to false
+logger(feriWala.country);                    //Indain feriwala has country property
+logger(feriWala.indainTrue());               //Indain feriwala inherited indainTrue method from Pearson class
+feriWala.changeSalute();                     //feriwala accessing it's changeSalute method
+logger(feriWala.wantToSalute);               //now want to salute is set to false
 
 
 //this enables custom/unique properties for child classes making code more usable
@@ -137,7 +137,7 @@ class NorthKarea extends Pearson {
     singAnthem = true;
     changeSalute(salute)  {
         logger("Who will want to not SALUTE?");
-        this.wantToSalute = true;           //change salute always sets want to salute property to true
+        this.wantToSalute = true;                                        //change salute always sets want to salute property to true
     };
 }
 
