@@ -141,7 +141,8 @@ class NorthKarea extends Pearson {
     singAnthem = true;
     changeSalute(salute)  {
         logger("Who will want to not SALUTE?");
-        this.wantToSalute = true;                                        //change salute always sets want to salute property to true
+        this.wantToSalute = true;                          
+//change salute always sets want to salute property to true
     };
 }
 
