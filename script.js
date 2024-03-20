@@ -122,10 +122,14 @@ class Indain extends Pearson {
 }
 
 const feriWala = new Indain(); 
-logger(feriWala.country);                    //Indain feriwala has country property
-logger(feriWala.indainTrue());               //Indain feriwala inherited indainTrue method from Pearson class
-feriWala.changeSalute();                     //feriwala accessing it's changeSalute method
-logger(feriWala.wantToSalute);               //now want to salute is set to false
+logger(feriWala.country);
+//Indain feriwala has country property
+logger(feriWala.indainTrue());   
+//Indain feriwala inherited indainTrue method from Pearson class
+feriWala.changeSalute();     
+//feriwala accessing it's changeSalute method
+logger(feriWala.wantToSalute);  
+//now want to salute is set to false
 
 
 //this enables custom/unique properties for child classes making code more usable
