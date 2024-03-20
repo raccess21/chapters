@@ -1,2 +1,3 @@
-a = "".join([str(i) for i in range(5)])
-print(a)
+a = [1, 2, 3]
+# a[3] = 4
+print(a[3])

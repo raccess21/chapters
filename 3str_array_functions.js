@@ -87,7 +87,11 @@ function arrays() {
     for (game of games.sort().reverse()) {              //sorted and reversed
         console.log(`games${i++} : ${game}`);
     }
-    
+
+    //in js arrays are implemented as hashmaps so this is legal
+    let a = [1,2,3];
+    a[100] = 101;
+    console.log(a);
 }
 
 //rest operator recieves array of parameters
