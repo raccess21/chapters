@@ -46,8 +46,7 @@ function strSlice() {
 
 //exercise
 //take string, remove leading/trailing spaces, capitalize and lower case everything else
-function strFormat() {
-    let nm = "  kkwebc akscbh  ";
+function strFormat(nm = "  kkwebc akscbh  ") {
     console.log(`Original String :  ${nm}`);
     nm = nm.trim()
     nm = nm.charAt(0).toUpperCase() + nm.slice(1).toLowerCase();    //method chaining
@@ -63,7 +62,6 @@ function arrays() {
     console.log(games.pop());               //pop item at the end
     games.unshift("chess");                 //add element in the beginning
     games.shift();                          //pop item at the beginning
-
 
     let i = 0;
     console.log(`index${i} : ${games[i++]}`);
