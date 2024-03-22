@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #stopwatch {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #timeBox {
+            font-size: 5em;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: #333;
+            color: #fff;
+            width: 7em;
+            height: 7em;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
+        }
+
+
+        #time {
+            display: block;
+        }
+
+        button {
+            margin: 5px 5px;
+            padding: 10px 30px;
+            font-size: 1.2em;
+            color: #fff;
+            background-color: #279B72;
+            border-radius: 0.5em;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        button:hover {
+            background-color: #2E865A;
+        }
+        
+        @media (max-width: 450px) {
+            button {
+                display: block;
+                margin: 0 auto;
+            }
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div id="stopwatch">
+        <div id="timeBox" class="moon">
+            <span id="time">00:00</span>
+        </div>
+        <button id="start" type="button">Start/Stop</button>
+        <button id="reset" type="button">Reset</button>
+        <button id="lap" type="button">Lap</button>
+    </div>
+
+    <script>
+        const btnStart = document.getElementById("start");
+        const btnReset = document.getElementById("reset");
+        const time = document.getElementById("time");
+        
+        let btnState = false;
+        
+        let startTime = 0, totalTime = 0, tt=0;
+        let timer;
+
+        function changeTimeBox() {
+            if (!btnState) {
+                let value = window.getComputedStyle(document.getElementById("timeBox")).getPropertyValue("height");
+                value = value === "7em" ? "8em" : "7em";
+                console.log(value);
+                text = `height: ${value}; width: ${value}`;
+                document.getElementById("timeBox").style.cssText = text;
+            }
+        }
+
+        btnStart.onclick = function () {
+            btnState = !btnState;
+            if(btnState){
+                startTime = Date.now();
+                timer = setInterval(() => {
+                    tt = Date.now() - startTime + totalTime;
+                    time.textContent = formatTime(tt);
+                }, 10);
+            }
+            else{
+                totalTime += tt;
+                console.log(totalTime);
+                clearInterval(timer);
+            }
+        }
+        document.getElementById("timeBox").onclick = btnStart.onclick;
+        
+        btnReset.onclick = function () {
+            btnState = true;
+            btnStart.onclick();
+            totalTime = 0;
+            time.textContent = "00:00";
+        }
+
+        function formatTime(timeInMillis){
+            const hours = Math.floor(timeInMillis / (1000 * 60 * 60));
+            const minutes = Math.floor((timeInMillis % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeInMillis % (1000 * 60)) / 1000);
+            const millis = Math.floor(timeInMillis %  1000 / 10);
+            return `${
+                        hours>0? hours.toString().padStart(2, '0') + ':': ''}${
+                        minutes>0? minutes.toString().padStart(2, '0')+ ':': ''}${
+                        seconds.toString().padStart(2, '0')}:${
+                        millis.toString().padStart(2, '0')}`;
+        }
+
+        changeTimeBox();    
+    </script>
+</body>
+</html>

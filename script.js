@@ -65,5 +65,5 @@ const tools = [
     {name: "shoe", job: "wear"},
     {name: "shoes", job: "run"},
 ]
-tools.forEach((element, array, index) => {array[index] = element.charAt(0).toUpperCase() + element.slice(1));
+tools.forEach((element, array, index) => {array[index] = element.charAt(0).toUpperCase() + element.slice(1);});
 logger(tools.map(tool => `${tool.name}-${tool.job}`).join(" | "));
