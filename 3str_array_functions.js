@@ -92,6 +92,21 @@ function arrays() {
     console.log(a);
 }
 
+//default sorting is done on lexographic basis
+function sortStrings(arr) {
+    arr.sort();
+    logger(arr);
+}
+
+//for numbers we have to specify mathematically
+function sortNums(arr) {
+    //a is first ele, b is second ele
+    arr.sort((a, b) => a - b);          //if a is larger a - b is +ve
+    logger(arr);
+    arr.sort((a, b) => b - a);          //b - a will sort in reverse
+    logger(arr);
+}
+
 //rest operator recieves array of parameters
 function restParam(...games) {
     console.log("Rest parameter example");
@@ -181,5 +196,16 @@ const squares = [1,2,3,4,5].map((element) => Math.pow(element, 2));
 console.log(`Average is ${avg3(1,2,3)}`);
 logger(`Average is  : ${avg3(1,2,3)}`);
 logger(`Squares are : ${squares}`);
-//testing web codespace
-//testing web codespace and pull
+
+
+////////////////CLOSURE/////////////////////////////////////
+// Function inside a function. Inner fun has access to and scope of outer function variables
+function hey(name) {
+    let message = "Hey ";
+    function masterName() {
+        return message + name + ".";
+    }
+    return masterName();
+}
+logger(hey("Ram"));
+

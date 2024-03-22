@@ -221,3 +221,4 @@ class Paarson {
 
 const munnaBhai = new Paarson("munnaBhai", false);
 logger(`Can ${munnaBhai.name} think?: ${munnaBhai.canThink}`);
+

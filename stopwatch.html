@@ -11,16 +11,16 @@
             flex-direction: column;
             align-items: center;
         }
-.moon {
-  width: 7em;
-  height: 7em;
-  border-radius: 50%;
-  position: relative;
-  background: radial-gradient(circle at 20% 50%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.8) 90%), 
-              radial-gradient(circle at 80% 50%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.8) 90%), 
-              radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.7) 30%, rgba(255, 255, 255, 0) 90%);
-  box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.5);
-}
+        .moon {
+        width: 7em;
+        height: 7em;
+        border-radius: 50%;
+        position: relative;
+        background: radial-gradient(circle at 20% 50%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.8) 90%), 
+                    radial-gradient(circle at 80% 50%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.8) 90%), 
+                    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.7) 30%, rgba(255, 255, 255, 0) 90%);
+        box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.5);
+        }
         #timeBox {
             font-size: 5em;
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -38,6 +38,9 @@
 
         #time {
             display: block;
+            font-size: larger;
+            transform:scale(1.5);
+            transition: width 0.9s;
         }
 
         button {
@@ -67,7 +70,7 @@
 </head>
 <body>
     <div id="stopwatch">
-        <div id="timeBox" class="moon">
+        <div id="timeBox" class="moonm">
             <span id="time">00:00</span>
         </div>
         <button id="start" type="button">Start/Stop</button>
@@ -88,7 +91,7 @@
         function changeTimeBox() {
             if (!btnState) {
                 let value = window.getComputedStyle(document.getElementById("timeBox")).getPropertyValue("height");
-                value = value === "7em" ? "8em" : "7em";
+                value = value == "7em" ? "8em" : "7em";
                 console.log(value);
                 text = `height: ${value}; width: ${value}`;
                 document.getElementById("timeBox").style.cssText = text;
@@ -107,6 +110,7 @@
             else{
                 totalTime += tt;
                 console.log(totalTime);
+                changeTimeBox()
                 clearInterval(timer);
             }
         }

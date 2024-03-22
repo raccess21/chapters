@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: hsl(0, 0%, 95%);
+            color: rgb(152, 93, 16);
+            text-align: center;
+            justify-content: center;
+        }
+        img {
+            width:200px;
+            height:200px;
+            margin:auto;
+            border-radius:50%;        }
+
+        h1 {
+            text-align:center;
+        }
+        .atr{
+            width:20%; 
+            border:2px solid rgb(152, 93, 16);
+            border-radius: 10%;
+            margin: 5px;
+            padding: 10px;
+        }
+        .atrs{
+            justify-content: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div style="display:flex; flex-direction:column;">
+        <img src="https://avatars1.githubusercontent.com/u/33168676?s=460&v=4">
+        <h1>Rahul Anand</h1>
+    </div>
+
+    <div class="atrs" style="display:flex; flex-wrap:wrap;">
+        <div class="atr">
+            <h2 class="atrHead">Skills</h2>
+            <div>C++</div>
+            <div>HTML</div>
+            <div>CSS</div>
+            <div>JavaScript</div>
+            <div>Python</div>
+            <div>SQL</div>
+            <div>MATLAB</div>
+            <div>DART</div>
+        </div>
+        <div class="atr">
+            <h2 class="atrHead">Education</h2>
+            <div>B.tech in Computer Science</div>
+            <div>IIT Kanpur</div>
+        </div>
+        <div class="atr">
+            <h2 class="atrHead">Hobbies</h2>
+            <div>Reading</div>
+            <div>Writing</div>
+            <div>Travelling</div>
+        </div>
+        <div class="atr">
+            <h2 class="atrHead">Projects</h2>
+            <div id="projects"><a href="#" onclick="loadProjects()">View more</a></div>
+
+            <script>
+                function loadProjects(){
+                    document.getElementById("projects").innerHTML = `<div style="overflow-y:scroll; max-height:250px; border:1px solid black; padding:5px; margin:5px;">
+                    <div>This portfolio</div>
+                    <div>Calculator</div>
+                    <div>Tic Tac Toe</div>
+                    <div>Stopwatch</div>
+                    <div>To do List</div>
+                    <div>Weather App</div>
+                    <div>Quote Machine</div>
+                    <div>Pomodoro Timer</div>
+                    <div>Rock Paper Scissors</div>
+                    <div>Calculator - with Bootstrap</div>
+                    <div>Stopwatch - with Bootstrap</div>
+                    <div>Leaderboard - with Bootstrap</div>
+                    <div>Memory Game</div>
+                    </div>`;
+                }
+            </script>
+
+        </div>
+    </div>
+
+</body>
+</html>
