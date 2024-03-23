@@ -113,4 +113,3 @@ tools.sort((a,b) => a.val - b.val);       //based on values
 logger(tools.map(tool => `${tool.name}-${tool.job}/${tool.con}`));
 tools.sort((a,b) => a.name.localeCompare(b.name));       //based on names
 logger(tools.map(tool => `${tool.name}-${tool.job}/${tool.con}`));
-7array_of_objects_destructuring.js

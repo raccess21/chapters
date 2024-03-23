@@ -10,13 +10,19 @@ function logger(msg) {
     div.innerHTML += `<p style="font-size: medium;">${div.childElementCount}. ${msg}</p>`;
 }
 
-function shuffle(cards) {
-    for (let i = cards.length-1; i > 0; i--) {
-        const random = Math.floor(Math.random() * (i + 1));
-        [cards[i], cards[random]] = [cards[random], cards[i]];
+///CLOSURE///////////////////////
+//function inside function for privatisation of variables while offering state maintenance
+
+function createCounter() {
+    let count = 0;
+
+    function increment(val = 1) {
+        count += val;
+        logger(count);
     }
-    
-    return cards;
+    return {in: increment};
 }
 
-logger(shuffle([1,2,3,4,5,6,7,8,9]));
+let ncount = createCounter();
+ncount.in();
+ncount.in(3);
