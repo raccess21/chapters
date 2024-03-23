@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
+    <button id="theme" type="button" onclick="tBClick()">Theme</button>
     <select id="languageSelector">
         <option value="fr">French</option>
         <option value="en">English</option>
@@ -18,9 +19,20 @@
         </div>
     </div>
     <script>
-        const selector = document.getElementById("languageSelector");
         const articleName = "apple";
-        let lang = "hi"; //selector.value;
+
+        const selector = document.getElementById("languageSelector");
+        let lang = localStorage.getItem('lang') || "hi"; 
+        selector.value = lang;
+        
+        const stylesheet = document.querySelector("link[rel='stylesheet']");
+        stylesheet.href = localStorage.getItem('themeName') || "styles/style.css";
+
+        const tBClick = function() {
+            stylesheet.href = stylesheet.href.includes("Dark") ? "styles/style.css" : "styles/styleDark.css";
+            localStorage.setItem('themeName', stylesheet.getAttribute('href'));
+        };
+        
         function loadArticles() {
             let xobj = new XMLHttpRequest();
             xobj.open('GET', './articles/articles.json', true);
@@ -33,10 +45,10 @@
         }
 
         
-        function createArticleLinks(jsonObj) {
+        function createArticleLinks(jsonObj, currentTheme) {
             let text = "";
             for (let article of jsonObj) {
-                text += `<a class="aLink" href="article.html?article=${article}" onclick="openArticle(this.getAttribute('href'))">${article}</a><br>`;
+                text += `<a class="aLink" href="javascript:openArticle('article.html?article=${article}')">${article}</a><br>`;
             }
             document.getElementById("content").innerHTML = text;
         };
@@ -49,7 +61,8 @@
         
         selector.addEventListener("change", function () {
             lang = selector.value;
-            loadJson();
+            localStorage.setItem('lang', lang);
+            loadArticles();
         });
 
         loadArticles();
@@ -57,3 +70,4 @@
     </script>
 </body>
 </html>
+
