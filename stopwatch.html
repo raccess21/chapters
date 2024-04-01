@@ -39,7 +39,7 @@
         #time {
             display: block;
             font-size: larger;
-            transform:scale(1.5);
+            transform:scale(1);
             transition: width 0.9s;
         }
 
@@ -64,6 +64,10 @@
                 margin: 0 auto;
             }
         }
+        #lapTimes {
+            display: flex;
+            flex-direction: column;
+        }
 
         
     </style>
@@ -73,14 +77,19 @@
         <div id="timeBox" class="moonm">
             <span id="time">00:00</span>
         </div>
-        <button id="start" type="button">Start/Stop</button>
-        <button id="reset" type="button">Reset</button>
-        <button id="lap" type="button">Lap</button>
+        <div id="buttons">
+            <button id="start" type="button">Start/Stop</button>
+            <button id="reset" type="button">Reset</button>
+            <button id="lap" type="button">Lap</button>
+        </div>
+        <div id="lapTimes">
+        </div>
     </div>
 
     <script>
         const btnStart = document.getElementById("start");
         const btnReset = document.getElementById("reset");
+        const btnLap = document.getElementById("lap");
         const time = document.getElementById("time");
         
         let btnState = false;
@@ -98,6 +107,11 @@
             }
         }
 
+        btnLap.onclick = function() {
+            if(btnState) {
+                document.getElementById("lapTimes").innerHTML += `<span class="lap">${formatTime(tt)}</span>`
+            }
+        }
         btnStart.onclick = function () {
             btnState = !btnState;
             if(btnState){
