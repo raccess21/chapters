@@ -39,6 +39,7 @@
         #time {
             display: block;
             font-size: larger;
+            font-family: monospace;
             transform:scale(1);
             transition: width 0.9s;
         }
@@ -46,17 +47,32 @@
         button {
             margin: 5px 5px;
             padding: 10px 30px;
-            font-size: 1.2em;
             color: #fff;
-            background-color: #279B72;
+            font-size: 1.2em;
             border-radius: 0.5em;
             cursor: pointer;
-            transition: 0.25s;
+            transition: background-color 0.25s ease;
         }
+        #start {
+            background-color: #279B72;
+        }
+        #reset {
+            background-color: #2e9fc4;
+        }
+        #lap {
+            background-color: #9635ac;
+        }
+        #start:hover {
+            background-color: #1d6e52;
+        }
+        #reset:hover {
+            background-color: #206d87;
+        }
+        #lap:hover {
+            background-color: #712982;
 
-        button:hover {
-            background-color: #2E865A;
         }
+        
         
         @media (max-width: 450px) {
             button {
@@ -75,10 +91,10 @@
 <body>
     <div id="stopwatch">
         <div id="timeBox" class="moonm">
-            <span id="time">00:00</span>
+            <span id="time">00:00:00:00</span>
         </div>
         <div id="buttons">
-            <button id="start" type="button">Start/Stop</button>
+            <button id="start" type="button">Start</button>
             <button id="reset" type="button">Reset</button>
             <button id="lap" type="button">Lap</button>
         </div>
@@ -101,7 +117,6 @@
             if (!btnState) {
                 let value = window.getComputedStyle(document.getElementById("timeBox")).getPropertyValue("height");
                 value = value == "7em" ? "8em" : "7em";
-                console.log(value);
                 text = `height: ${value}; width: ${value}`;
                 document.getElementById("timeBox").style.cssText = text;
             }
@@ -115,6 +130,8 @@
         btnStart.onclick = function () {
             btnState = !btnState;
             if(btnState){
+                btnStart.textContent = 'Stop';
+                btnStart.style = 'background-color: #ac3535';
                 startTime = Date.now();
                 timer = setInterval(() => {
                     tt = Date.now() - startTime + totalTime;
@@ -122,8 +139,12 @@
                 }, 10);
             }
             else{
+                btnStart.textContent = 'Start';
+                btnStart.style = 'background-color: #279b72';
+                btnStart.onmouseover = function() {
+                    btnStart.style = 'background-color: #id6e52';
+                }
                 totalTime += tt;
-                console.log(totalTime);
                 changeTimeBox()
                 clearInterval(timer);
             }
@@ -134,7 +155,7 @@
             btnState = true;
             btnStart.onclick();
             totalTime = 0;
-            time.textContent = "00:00";
+            time.textContent = "00:00:00:00";
         }
 
         function formatTime(timeInMillis){
@@ -143,8 +164,8 @@
             const seconds = Math.floor((timeInMillis % (1000 * 60)) / 1000);
             const millis = Math.floor(timeInMillis %  1000 / 10);
             return `${
-                        hours>0? hours.toString().padStart(2, '0') + ':': ''}${
-                        minutes>0? minutes.toString().padStart(2, '0')+ ':': ''}${
+                        hours.toString().padStart(2, '0') + ':'}${
+                        minutes.toString().padStart(2, '0')+ ':'}${
                         seconds.toString().padStart(2, '0')}:${
                         millis.toString().padStart(2, '0')}`;
         }
