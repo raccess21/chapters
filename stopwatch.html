@@ -89,6 +89,12 @@
         #lapTimes {
             display: flex;
             flex-direction: column;
+            padding: 5px;
+            margin: 5px;
+        }
+        .laps {
+            border-radius: 5em;
+            border-width: 1em;
         }
 
         
@@ -136,7 +142,8 @@
         btnLap.onclick = function() {
             if(btnState) {
                 let lapTime = tt + totalTime;
-                document.getElementById("lapTimes").innerHTML += `<span class="lap">${formatTime(lapTime)}</span>`
+                let lapDivs = document.getElementById("lapTimes");
+                lapDivs.innerHTML = `<div class="laps">${formatTime(lapTime)}</div>` + lapDivs.innerHTML;
             }
         }
         btnStart.onclick = function () {
