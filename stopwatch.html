@@ -10,15 +10,16 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
         }
         .moon {
         width: 7em;
         height: 7em;
         border-radius: 50%;
         position: relative;
-        background: radial-gradient(circle at 20% 50%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.8) 90%), 
-                    radial-gradient(circle at 80% 50%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.8) 90%), 
-                    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.7) 30%, rgba(255, 255, 255, 0) 90%);
+        background: radial-gradient(circle at 20% 50%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 90%), 
+                    radial-gradient(circle at 80% 50%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 90%);
+                    /* radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.7) 60%, rgba(255, 255, 255, 0) 90%); */
         box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.5);
         }
         #timeBox {
@@ -26,8 +27,8 @@
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             background-color: #333;
             color: #fff;
-            width: 7em;
-            height: 7em;
+            /* width: 7em;
+            height: 7em; */
             border-radius: 50%;
             display: flex;
             justify-content: center;
@@ -39,7 +40,11 @@
         #time {
             display: block;
             font-size: larger;
+            display: flex;
+            flex-direction: row;
             font-family: monospace;
+            padding: 0px;
+            margin: 0px;
             transform:scale(1);
             transition: width 0.9s;
         }
@@ -49,6 +54,7 @@
             padding: 10px 30px;
             color: #fff;
             font-size: 1.2em;
+            font-weight: bold;
             border-radius: 0.5em;
             cursor: pointer;
             transition: background-color 0.25s ease;
@@ -90,8 +96,13 @@
 </head>
 <body>
     <div id="stopwatch">
-        <div id="timeBox" class="moonm">
-            <span id="time">00:00:00:00</span>
+        <div id="timeBox" class="moon">
+            <div id="time">
+                <span id="h">00:</span>
+                <span id="m">00:</span>
+                <span id="s">00:</span>
+                <span id="ms">00</span>
+            </div>
         </div>
         <div id="buttons">
             <button id="start" type="button">Start</button>
@@ -124,7 +135,8 @@
 
         btnLap.onclick = function() {
             if(btnState) {
-                document.getElementById("lapTimes").innerHTML += `<span class="lap">${formatTime(tt)}</span>`
+                let lapTime = tt + totalTime;
+                document.getElementById("lapTimes").innerHTML += `<span class="lap">${formatTime(lapTime)}</span>`
             }
         }
         btnStart.onclick = function () {
@@ -134,8 +146,8 @@
                 btnStart.style = 'background-color: #ac3535';
                 startTime = Date.now();
                 timer = setInterval(() => {
-                    tt = Date.now() - startTime + totalTime;
-                    time.textContent = formatTime(tt);
+                    tt = Date.now() - startTime;
+                    time.textContent = formatTime(tt + totalTime);
                 }, 10);
             }
             else{
@@ -145,6 +157,7 @@
                     btnStart.style = 'background-color: #id6e52';
                 }
                 totalTime += tt;
+                time.textContent = formatTime(totalTime);
                 changeTimeBox()
                 clearInterval(timer);
             }
