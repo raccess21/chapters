@@ -1,3 +1,7 @@
+import {PI, checkNumber, getCircumference} from './8import_error.js';
+
+console.log(PI);
+checkNumber('a');
 //populate h and label
 function populate(h1, label) {
     document.getElementById("myH1").textContent = h1;

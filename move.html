@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #box{
+            background-color: lightblue;
+            width: 200px;
+            height: 200px;
+            font-size: 7rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">:D</div>
+    <script>
+        const box = document.getElementById('box');
+        const moveAmount = 100;
+        let [x, y] = [0, 0];
+        document.addEventListener('keyup', event => {
+            box.textContent = ':D';
+            box.style.backgroundColor = 'lightblue';
+        });
+
+        document.addEventListener('keydown', event => {
+            box.textContent = ':O';
+            box.style.backgroundColor = 'red';
+            if(event.key.startsWith('Arrow')){
+                event.preventDefault();
+                switch(event.key){
+                    case 'ArrowUp':
+                        y -= moveAmount;
+                        break;
+                    case 'ArrowLeft':
+                        x -= moveAmount;
+                        break;
+                    case 'ArrowDown':
+                        y += moveAmount;
+                        break;
+                    case 'ArrowRight':
+                        x += moveAmount;
+                        break;
+                }
+                box.style.top = `${y}px`;
+                box.style.left = `${x}px`;
+            }
+        });
+    </script>
+</body>
+</html>

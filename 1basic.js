@@ -79,3 +79,15 @@ function arithmetic() {
 
 textOfElement("Admin", 3);
 arithmetic();
+
+
+//////////////////////////////////////
+function classListExplain(){
+    //classList is list of class applied to an html element
+    let h = document.getElementById("myH1");
+    h.classList.add('cls1');                    //add a class
+    h.classList.remove('cls1');                 //remove a class
+    h.classList.toggle('cls1');                 //remove cls1 if present, add if not
+    h.classList.replace('cls1', 'cls2');        //replace a cls1 with cls2
+    h.classList.contains('cls1');               //if ele has cls1 as it's class return true else false
+}
