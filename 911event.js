@@ -32,7 +32,7 @@ function changeColor(event){
 document.addEventListener('keydown', event => {
     const p = document.createElement('p');
     p.className = 'bolo';
-    p.textContent = 'Nono';
+    p.textContent = `Nono: ${event.key}`;
     document.body.append(p);
 });
 
