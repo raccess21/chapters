@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeSearch</title>
+</head>
+<body>
+    <input type="text" id="pokemonName" placeholder="Enter Pokemon name: ">
+    <button onclick="fetchData()">Get</button><br>
+    <img src="" alt="Pokemon" id="pokemonSprite" style="display: none;">
+    
+    <script>
+        const inp = document.getElementById("pokemonName");
+        let intervalId = 0;
+        async function fetchUrls(){
+            try{
+                const name = inp.value.toLowerCase();
+                const resp = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+                let images = [];
+                if(resp.ok){
+                    const data = await resp.json();
+                    let images = [];
+                    
+                    for(img in data.sprites){
+                        let url = data.sprites[img];
+                        if(url && url.toString().includes('https')){
+                            images.push(url);
+                        }
+                    }
+                    return images;
+                }
+                else{
+                    throw new Error("Couldn't fetch data");
+                }
+            }
+            catch(error){
+                console.error(error);
+            }
+        }
+
+        async function fetchImages(){
+            const images = await fetchUrls();
+            let img = 0;
+            const iEle = document.getElementById("pokemonSprite");
+            intervalId = setInterval(() => {
+                iEle.src = images[img];
+                iEle.style.display = 'block';
+                img = (img + 1) % images.length;
+            }, 500);
+        }
+
+        function fetchData(){
+            if(intervalId != 0){
+                clearInterval(intervalId);
+            }
+            fetchImages();    
+        }
+
+        inp.addEventListener('keypress', event => {
+            if(event.key === 'Enter'){
+                fetchData();
+            }
+        });
+    </script>
+</body>
+</html>

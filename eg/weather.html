@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: hsl(0, 0%, 95%);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .weatherForm{
+            margin: 20px;
+        }
+        .cityInput{
+            padding: 10px;
+            font-size: 2rem;
+            font-weight: bold;
+            border: 2px solid rgba(197, 126, 126, 0.323);
+            border-radius: 10px;
+            margin: 10px;
+            width: 300px;
+        }
+        button[type="submit"]{
+            padding: 10px 20px;
+            font-weight: bold;
+            font-size: 2rem;
+            background-color: hsl(120, 23%, 45%);
+            columns: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover{
+            background-color: hsl(120, 23%, 33%);
+        }
+        .card{
+            background: linear-gradient(180deg, hsl(206, 84%, 45%), rgb(234, 171, 53));
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.551);
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1{
+            font-size: 3.5rem;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+        p{
+            font-size: 1.5rem;
+            margin: 5px 0;
+        }
+        .cityDisplay, .tempDisplay{
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: hsla(0, 0%, 0%, 0.75);
+            margin-bottom: 25px;
+        }
+        .humidityDisplay{
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+        .descDisplay{
+            font-size: italic;
+            font-weight: bold;
+            font-size: 2rem;
+        }
+        .weatherEmoji{
+            margin: 0;
+            font-size: 7rem;
+        }
+        .errorDisplay{
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: hsla(0, 0%, 0%, 0.75);
+        }
+    </style>
+</head>
+<body>
+    <form action="" class="weatherForm">
+        <input type="text" class="cityInput" placeholder="Enter city">
+        <button type="submit" onclick="weather()">Get Weather</button>
+    </form>
+
+    <div class="card" style="display: none"></div>
+
+    <script>
+        const weatherForm= document.querySelector(".weatherForm");
+        const cityInput= document.querySelector(".cityInput");
+        const card = document.querySelector(".card");
+        const apiKey = 'afd5d96188c7d4f4740591bd07963242';
+
+        cityInput.addEventListener('keypress', event => {
+            if(event.key === 'Enter'){
+                weather();
+            }
+        })
+
+        async function weather() {
+            event.preventDefault();
+            city = cityInput.value;
+            if(city){
+                try{
+                    const weatherData = await getWeatherData(city);
+                    if(weatherData){
+                        displayWeather(weatherData);
+                    }
+                    else{
+                        displayError("Can't fetch weather data");
+                    }
+                }
+                catch(error){
+                    console.error(error);
+                }
+            }
+            else{
+                displayError("Please Enter a City");
+            }
+        }
+
+        async function getWeatherData(city){
+            const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+            const response = await fetch(apiUrl);
+            if(!response.ok){
+                return false;
+            }
+            return response.json();
+        }
+
+        function displayWeather(data){
+            const {
+                name: city, 
+                main: {temp, humidity}, 
+                weather: [{description, id}]} = data;
+            card.textContent = "";
+            card.style.display = "flex";
+            
+            card.innerHTML =
+                `<h1 class="cityDisplay">${city}</h1>` +
+                `<p class="tempDisplay">${(temp - 273).toFixed(1)}°C</p>` +
+                `<p class="humiDisplay">Humidity: ${humidity}%</p>` +
+                `<p class="descDisplay">${description}</p>` +
+                `<p class="weatherEmoji">${getWeatherEmoji(id)}</p>`;
+        }
+
+        function getWeatherEmoji(id){
+            switch(true) {
+                case (id >= 200 && id <= 300):
+                    return "⛈️";
+                case (id >= 300 && id <= 400):
+                    return "🌧️";
+                case (id >= 500 && id <= 600):
+                    return "🌧️";
+                case (id >= 600 && id <= 700):
+                    return "❄️";
+                // case(id === 701):
+                // 	return 🌁;
+                // case(id === 711):
+                // 	return 	smoke;
+                // case(id === 721):
+                // 	return Haze	haze;
+                // case(id === 731):
+                // 	return Dust	sand/dust whirls;
+                // case(id === 741):
+                // 	return Fog	fog;
+                // case(id === 751):
+                // 	return Sand	sand;
+                // case(id === 761):
+                // 	return Dust	dust;
+                // case(id === 762):
+                // 	return Ash	volcanic ash;
+                // case(id === 771):
+                // 	return Squall	squalls;
+                // case(id === 781):
+                // 	return Tornado	tornado;
+                case (id >= 700 && id <= 800):
+                    return "🌫️";
+                case (id === 800):
+                    return "🌞";
+                case (id >= 800 && id <= 900):
+                    return "☁️";
+                default:
+                    return "👐";
+                };
+        }
+
+        function displayError(mes){
+            const errorDisplay = document.createElement("p");
+            errorDisplay.textContent = mes;
+            errorDisplay.classList.add("errorDisplay");
+            card.textContent = "";
+            card.style.display = "flex";
+            card.appendChild(errorDisplay);
+        }
+    </script>
+</body>
+</html>
