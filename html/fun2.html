@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+        <style>
+            #m{background-color:green; color:red;}
+        </style>
+		<script>
+		    function greet()
+		    {
+		        let name= document.querySelector('#q').value;
+		        let ageval= document.querySelector('#az').value;
+		        let difference =ageval -35;
+		        alert('name : ' + name+'\n'+'age : '+ageval);
+		    }
+
+		</script>
+		<title>
+            me title
+        </title>
+	</head>
+	<body>
+	    <h1>
+            me body no no
+        </h1>
+		<h2>
+		    me body yes yes
+		</h2>
+		<form>
+            <input
+                autocomplete="off"
+                autofocus
+                id="q"
+                placeholder="Ready? type!!" type="text">
+            <input type="submit" value="enter"></input>
+		    </input>
+
+		</form>
+        <form>
+            <input
+                autocomplete="off"
+                autofocus
+                id="az"
+                placeholder="Enter age!!" type="number">
+            <input type="submit" value="enter"></input>
+		    </input>
+		</form>
+
+	</body>
+</html>
+

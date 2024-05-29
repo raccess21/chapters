@@ -1,0 +1,6 @@
+pip
+black
+codestyle
+pep8
+cowsay
+requests

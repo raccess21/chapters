@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+        <style>
+            #m{background-color:green; color:red;}
+        </style>
+		<script>
+		    function age_limit()
+		    {
+		        let ageval= document.querySelector('#q').value;
+		        let difference =ageval -35;
+		        alert(ageval);
+		        if(ageval>35)
+                {
+                    alert('your age is : '+difference+ ' greater then  eligible');
+                }
+
+		    }
+		</script>
+		<title>
+            me title
+        </title>
+	</head>
+	<body>
+	    <h1>
+            me body no no
+        </h1>
+		<h2>
+		    me body yes yes
+		</h2>
+
+		<form
+            onsubmit="age_limit(); return false;">
+		    <input
+                autocomplete="off"
+                autofocus
+                id="q"
+                placeholder="Enter age!!" type="number">
+            <input type="submit" value="enter"></input>
+		    </input>
+		</form>
+	</body>
+</html>

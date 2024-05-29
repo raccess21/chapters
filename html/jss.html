@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+        <script>
+            let cola='black';
+		    function greet()
+		    {
+		        let cola= document.querySelector('#q').value;
+		        alert('body dead say : ' + name);
+            }
+
+		</script>
+		<style>
+                    body{background-color:cola; color:red;}
+        </style>
+        <title>
+            me title
+        </title>
+	</head>
+	<body>
+	    <h1>
+            me body no no
+        </h1>
+		<h2>
+		    me body yes yes
+		</h2>
+		<form
+            action="https://www.google.com/search" method="get"
+            onsubmit="greet(); return false;">
+		    <input
+                autocomplete="off"
+                autofocus
+                id="q"
+                placeholder="enter color!!" type="text">
+            <input type="submit" value="enter"></input>
+		    </input>
+		</form>
+	</body>
+</html>
