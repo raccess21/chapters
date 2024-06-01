@@ -1,10 +1,20 @@
-import {Lesson_1_Components, Food, Header, Footer, Card} from "./1Components_styling.jsx"
-import Button from "./Button/Button.jsx"
+import Test from "./Test.jsx"
+
+import {
+    Lesson_1_Components, 
+    Food
+} from "./L1_Components_styling.jsx"            //{} for multiple imports 
+import * as bk from "./L2_props.jsx"            //from import all 
+
+
 
 function App(){
     return (
-    // <Lesson_1_Components/>
-    <Button/>
+    <>
+        <Test/>
+        <Lesson_1_Components/>
+        <bk.Lesson_2_Props/>
+    </> 
     );
 }
 

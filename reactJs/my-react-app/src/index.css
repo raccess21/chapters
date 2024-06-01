@@ -7,10 +7,12 @@
     text-align: center;
     max-width: 250px;
     display: inline-block;
+    flex-basis: calc(20% - 20px);
 }
 
 .card-container{
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -32,4 +34,30 @@
 .card-text{
     font-family: Arial, Helvetica, sans-serif;
     color: hsl(0, 0%, 30%);
+}
+
+.student{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2em;
+    padding: 10px;
+    border: 1px solid hsla(0, 0%, 50%, 0.8);
+}
+
+.student p{
+    margin: 0;
+}
+
+.welcome-mes, .login-prompt{
+    font-size: 2.5em;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0;
+}
+.welcome-mes{
+    background-color: hsl(120, 100%, 42%);
+}
+
+.login-prompt{
+    background-color: hsl(16, 90%, 49%);
 }

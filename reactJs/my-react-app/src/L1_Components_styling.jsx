@@ -1,4 +1,5 @@
 import profile_pic from "./assets/triangle.jpeg"
+import Button from "./Button/Button";
 
 // components are standalone jsx functions that 
 // translate(by returning) into a full html element
@@ -59,6 +60,26 @@ export function Card(){
     );
 }
 
+// 2. MODULES
+// e.g Button in separate Button folder with custom css in it's directory
+// unique classnames are dynamically created to avoid naming conflicts
+// component_name.module.css -> naming convention for module styling
+
+// 3. INLINE
+export function Button2(){
+    const styles = {
+        backgroundColor: "hsl(100, 100%, 50%)",
+        color: "black",
+        padding: "10px 20px",
+        borderRadius: "5px",
+        border: "none",
+        cursor: "pointer"
+    }
+    return (
+        <button style={styles}>Click Me</button>
+    )
+}
+
 // components are reusable
 export function Lesson_1_Components(){
     return (
@@ -72,17 +93,12 @@ export function Lesson_1_Components(){
                 <Card/>
             </div>
             <Food/>
+            <Button/>
+            <Button2/>
             <Footer/>
         </>
     );
 }
-
-// 2. MODULES
-// e.g Button in separate Button folder with custom css in it's directory
-// unique classnames are dynamically created to avoid naming conflicts
-// component_name.module.css -> naming convention for module styling
-
-// 3. INLINE
 
 
 // gets exported by default 
