@@ -201,6 +201,7 @@ function Update_Array_Object2(){
             <ul>
                 {cands.map((cand, index) => 
                     <li key={index} onClick={() => remCand(index)}>
+                    {/* onclick=remCand(index) li ko instantly delete kr ra tha. Ispe aadha ghanta waste kiya*/}
                         {cand.nam} {cand.origin} 
                     </li>
                 )}

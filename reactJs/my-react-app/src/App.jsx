@@ -7,7 +7,7 @@
 // import * as bk from "./L2_props.jsx"            //from import all 
 // import Lesson_3_Lists from "./L3_lists.jsx";
 // import Lesson_4_Events from "./L4_events.jsx";
-import Lesson_5_Hooks from "./L5_hooks.jsx";
+// import Lesson_5_Hooks from "./L5_hooks.jsx";
 
 
 // import Color_Picker from "./P_Color_Picker.jsx";
@@ -20,8 +20,8 @@ function App(){
         {/* <Lesson_1_Components/>
         <bk.Lesson_2_Props/>
         <Lesson_3_Lists/> 
-        <Lesson_4_Events/>*/}
-        <Lesson_5_Hooks/>
+        <Lesson_4_Events/>
+        <Lesson_5_Hooks/>*/}
         
         {/* <Color_Picker/> */}
         <To_Do_List/>
