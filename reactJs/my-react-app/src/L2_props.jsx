@@ -31,7 +31,7 @@ Student.defaultProps = {
 
 ///////////////////////////////////////////
 // CONDITIONAL rendering -> show/hide based on props
-export function UserGreeting(props){
+export function UserGreeting(props = {isLogged: false,uName: "Guest"}){
     const welcome_mes = `Welcome! ${props.uName}`;
     const log_mes = <h2 className="login-prompt">
                         Please log in to Continue {props.uName}
@@ -46,11 +46,6 @@ export function UserGreeting(props){
     else{
         return;                                         //nothing rendered in this case
     }
-}
-
-UserGreeting.defaultProps = {
-    isLogged: false,
-    uName: "Guest"
 }
 
 export function Lesson_2_Props(){

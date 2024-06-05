@@ -19,7 +19,7 @@ export function Food(){
 }
 
 // footer component
-export function Footer(){
+function Footer(){
     return(
         <footer>
             <p>&copy; {new Date().getFullYear()} My Website Name</p>
@@ -27,7 +27,7 @@ export function Footer(){
     );
 }
 
-export function Header(){
+function Header(){
     return(
         <header>
             <h1>My Website</h1>
@@ -50,7 +50,7 @@ export function Header(){
 // 3. INLINE
 
 // 1. external styling using external css stylesheets -> id/class/tages etc
-export function Card(){
+function Card(){
     return(
         <div className="card">
             <img className="card-image" src={profile_pic} alt="Profile Picture" />
@@ -66,7 +66,7 @@ export function Card(){
 // component_name.module.css -> naming convention for module styling
 
 // 3. INLINE
-export function Button2(){
+function Button2(){
     const styles = {
         backgroundColor: "hsl(100, 100%, 50%)",
         color: "black",
