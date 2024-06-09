@@ -146,7 +146,7 @@ export const ContactGoogleForm = () =>{
       }
     });
     console.log(result.JSON());
-    setFormDetails(formInitialDetails);
+    setFormData(formInitialDetails);
     if (result.code == 200) {
       setStatus({ succes: true, message: 'Message sent successfully'});
     } else {
