@@ -177,7 +177,8 @@ export const ContactGoogleForm = () =>{
                       type="text"
                       value={formData.firstName}
                       placeholder="First Name"
-                      onChange={(e) => onFormUpdate("fName", e)} />
+                      onChange={(e) => onFormUpdate("fName", e)} 
+                      required/>
                     </Col>
                     <Col size={12} sm={6} className="px-1">
                       <input 
@@ -191,7 +192,8 @@ export const ContactGoogleForm = () =>{
                       type="email"
                       value={formData.email}
                       placeholder="Email Address"
-                      onChange={(e) => onFormUpdate("email", e)} />
+                      onChange={(e) => onFormUpdate("email", e)} 
+                      required/>
                     </Col>
                     <Col size={12} sm={6} className="px-1">
                       <input 
