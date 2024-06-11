@@ -4,7 +4,7 @@
 
 
 // useState() => create stateful variable and a setter function to update 
-//               it's value in virtual DOM
+//               it's value in virtual DOM and render the change
 //               {name, setName}
 
 import React, {useState} from 'react'
@@ -213,7 +213,7 @@ function Update_Array_Object2(){
     )
 }
 
-export function Lesson_5_Hooks(){
+export function L5_UseState(){
     return (<>
         {/* <UseState/>
         <OnChange/>
@@ -223,4 +223,4 @@ export function Lesson_5_Hooks(){
     </>);
 }
 
-export default Lesson_5_Hooks;
+export default L5_UseState;

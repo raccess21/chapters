@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-function Lesson_3_Lists(props){
+function L3_Lists(props){
     const gods = [
         {id: 1, name: "Rame", power: 95},
         {id: 2, name: "Krashan", power: 97},
@@ -76,4 +76,4 @@ export function ListProp(props){
     );
 }
 
-export default Lesson_3_Lists
+export default L3_Lists

@@ -35,7 +35,7 @@ export function Profile_Picture(){
     return (<img src={imgUrl} onClick={(e) => handleClick(e)}></img>);
 }
 
-export function Lesson_4_Events(){
+export function L4_Events(){
     return <>
             <Button/>
             <br />
@@ -43,4 +43,4 @@ export function Lesson_4_Events(){
             <Profile_Picture/>
     </>
 }
-export default Lesson_4_Events
+export default L4_Events

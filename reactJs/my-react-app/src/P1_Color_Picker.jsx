@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import "./styles/P_Color_Picker.css"
+import "styles/P1_Color_Picker.css"
 
 function Color_Picker(){
     const [color, setColor] = useState("#FFFFFF");

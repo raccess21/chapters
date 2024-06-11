@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import "./styles/To_Do_List.css"
+import "./styles/P2_To_Do_List.css"
 
 function To_Do_List(){
     const [tasks, setTasks] = useState(["Eat", "Sleep"]);
@@ -18,6 +18,14 @@ function To_Do_List(){
 
     function deleteTask(index){
         setTasks(tasks.filter((_, i) => i != index));
+    }
+
+    function moveTask(index, i){
+        if(index > 0 && i < 0 || index < tasks.length-1 && i > 0){
+            const newTasks = [...tasks];
+            [newTasks[index], newTasks[index+i]] = [newTasks[index+i], newTasks[index]]
+            setTasks(newTasks);
+        }
     }
 
     function moveTaskUp(index){
@@ -63,12 +71,12 @@ function To_Do_List(){
                         </button>
                         <button
                             className="move_button"
-                            onClick={() => moveTaskUp(index)}>
+                            onClick={() => moveTask(index, -1)}>
                             Move ⬆️
                         </button>
                         <button
                             className="move_button"
-                            onClick={() => moveTaskDown(index)}>
+                            onClick={() => moveTask(index, 1)}>
                             Move ⬇️
                         </button>
                     </li>
