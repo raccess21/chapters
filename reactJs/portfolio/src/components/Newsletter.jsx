@@ -55,7 +55,7 @@ export const NewsletterGoogleForm = () => {
 
   // to populate newletter email with the value of contact email
   useEffect(() => {
-    setEmail(contactEmail);
+    contactEmail === "" ? "" : setEmail(contactEmail);
   }, [contactEmail]);
 
   const handleSubmit = async (e) => {
