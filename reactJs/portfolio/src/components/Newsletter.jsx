@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Col, Row, Alert } from "react-bootstrap";
-
+import { emailContext } from "./Contact.jsx";
 // export const Newsletter = ({ status, message, onValidated }) => {
 //   const [email, setEmail] = useState('');
 
@@ -46,13 +46,18 @@ import { Col, Row, Alert } from "react-bootstrap";
 // }
 
 export const NewsletterGoogleForm = () => {
-  const [email, setEmail] = useState('');
+  const contactEmail = useContext(emailContext);
+  const [email, setEmail] = useState("");
   const [submit, setSubmit] = useState(false);
   
   const [buttonText, setButtonText] = useState('Send');
   const [status, setStatus] = useState({});
 
-  
+  // to populate newletter email with the value of contact email
+  useEffect(() => {
+    setEmail(contactEmail);
+  }, [contactEmail]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setButtonText("Sending");

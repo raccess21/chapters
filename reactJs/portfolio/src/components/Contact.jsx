@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, createContext } from "react";
 // import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import Footer from "./Footer.jsx"
 // import { googleFormsToJson } from "react-google-forms-hooks";
 import contactImg from "../assets/img/contact-img.svg";
 import 'animate.css';
@@ -98,6 +99,7 @@ import TrackVisibility from 'react-on-screen';
 //   )
 // }
 
+export const emailContext = createContext();
 
 export const ContactGoogleForm = () =>{
   const [submit, setSubmit] = useState(false);
@@ -154,7 +156,7 @@ export const ContactGoogleForm = () =>{
     }
   }
   
-  return (
+  return (<>
     <section className="contact" id="connect">
       <Container>
         <Row className="align-items-center">
@@ -169,7 +171,7 @@ export const ContactGoogleForm = () =>{
             <TrackVisibility>
               {({ isVisible }) =>
                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                <h2>Get In Touch</h2>
+                  <h2>Get In Touch</h2>
                 <form onSubmit={handleSubmit}>
                   <Row>
                     <Col size={12} sm={6} className="px-1">
@@ -224,5 +226,9 @@ export const ContactGoogleForm = () =>{
         </Row>
       </Container>
     </section>
+    <emailContext.Provider value={formData.email}>
+      <Footer/>
+    </emailContext.Provider>
+  </>
   );
 }

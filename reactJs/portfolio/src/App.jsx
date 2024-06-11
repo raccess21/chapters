@@ -16,7 +16,6 @@ function App() {
       <Skills />
       <Projects />
       <ContactGoogleForm/>
-      <Footer />
     </div>
   );
 }
