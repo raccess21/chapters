@@ -17,7 +17,7 @@
 // import To_Do_List from "./P2_To_Do_List.jsx";
 // import Clock from "./P3_Clock.jsx";
 import Stopwatch from "./P4_Stopwatch.jsx";
-
+import Background from "./Background.jsx";
 
 function App(){
     return (
@@ -30,11 +30,21 @@ function App(){
         {/* <L6_Hooks/> */}
         {/* <L7_UseContext/> */}
         {/* <L7_UseRef/> */}
-
+        <Background/>
+        <h1>asla</h1>
+        <h1>asla</h1>
+        <h1>asla</h1>
+        <h1>asla</h1>
+        <h1>asla</h1>
+        <h1>asla</h1>
+        <h1>asla</h1>
+        <h1>asla</h1>
+        <h1>asla</h1>
+        <h1>asla</h1>
         {/* <Color_Picker/> */}
         {/* <To_Do_List/> */}
         {/* <Clock/> */}
-        <Stopwatch/>
+        {/* <Stopwatch/> */}
     </> 
     );
 }

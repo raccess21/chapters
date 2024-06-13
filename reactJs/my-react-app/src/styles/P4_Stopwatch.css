@@ -2,7 +2,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: lightgray;
+    background-color: hsla(0, 0%, 83%, 0);
 }
 .stopwatch{
     display: flex;
@@ -10,7 +10,7 @@ body{
     align-items: center;
     border: 5px solid;
     border-radius: 50px;
-    background-color: white;
+    background-color: hsla(0, 0%, 100%, 0);
     padding: 30px;
 }
 .display{
