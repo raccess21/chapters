@@ -40,7 +40,7 @@ def prime1(num):
             while(j<=num):
                 numbers[j]=0
                 j=j+i
-     
+    
     for i in range(2,num+1):
         if numbers[i]==1:
             primes=primes+1
