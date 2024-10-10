@@ -59,7 +59,7 @@ mean(subset(chicks, feed == "meatmeal")$weight)
 
 
 #------------------------------menus---------------------------------------
-chicks <- read.csv("chicks.csv")
+chicks <- read.csv("lecture_source/src2/chicks/chicks.csv")
 chicks <- subset(chicks, !is.na(weight))
 
 feeds <- unique(chicks$feed)
@@ -75,13 +75,13 @@ if(feed_choice < 1 || feed_choice > 6) {
 }
 
 #----------------------------binding multiple tables-------------------------
-q1 <- read.csv("src2/sales/Q1.csv")
+q1 <- read.csv("lecture_source/src2/sales/Q1.csv")
 q1$quarter <- "Q1"
-q2 <- read.csv("src2/sales/Q2.csv")
+q2 <- read.csv("lecture_source/src2/sales/Q2.csv")
 q2$quarter <- "Q2"
-q3 <- read.csv("src2/sales/Q3.csv")
+q3 <- read.csv("lecture_source/src2/sales/Q3.csv")
 q3$quarter <- "Q3"
-q4 <- read.csv("src2/sales/Q4.csv")
+q4 <- read.csv("lecture_source/src2/sales/Q4.csv")
 q4$quarter <- "Q4"
 
 #rbind binds dataframes, !column number should be same

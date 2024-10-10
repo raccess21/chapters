@@ -1,5 +1,5 @@
 library("ggplot2")
-votes <- read.csv("src5/votes/votes.csv")
+votes <- read.csv("lecture_source/src5/votes/votes.csv")
 
 '
 data      <- data for ggplot
@@ -40,7 +40,7 @@ p <- ggplot(votes, aes(x = candidate, y = votes)) +
 
 #save the plot as image file
 ggsave(
-  "votes.png",
+  "lecture_out/src5/votes.png",
   plot = p,
   height = 1200,
   width = 1200,
@@ -49,7 +49,7 @@ ggsave(
 
 
 #-----------------------POINT PLOT--------------------------
-load("src5/candy/candy.RData")
+load("lecture_source/src5/candy/candy.RData")
 
 '
 color
@@ -82,7 +82,7 @@ ggplot(candy, aes(
 
 #---------------TIME SERIES DATA--------------------------
 #---------------data that changes over time------------------
-load("src5/anita/anita.RData")
+load("lecture_source/src5/anita/anita.RData")
 
 '
 linetype  

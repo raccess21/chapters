@@ -17,7 +17,7 @@ group_by
 summarize
 '
 
-storms <- read.csv("src4/storms/hurricanes.csv")
+storms <- read.csv("lecture_source/src4/storms/hurricanes.csv")
 storms <- tibble(storms)                  #organize storms as dplyr tibble
 dplyr::select(storms, !c(year))           #select columns, !select columns
 
@@ -54,8 +54,8 @@ storms |>
   select(c(year, wind, ends_with('me'))) |>
   filter(wind > 150) |>
   arrange(desc(year), desc(wind)) |>
-  distinct(name, year, .keep_all = TRUE) 
-  #|> write.csv("hurricanes.csv", row.names = FALSE)
+  distinct(name, year, .keep_all = TRUE) |> 
+  write.csv("lecture_out/src4/hurricanes.csv", row.names = FALSE)
 
 
 #-------------------------slicing---------------------------------------
@@ -97,7 +97,7 @@ st <- storms |>
 3. each cell is a  value       and each value       is a cell 
 '
 library("tidyr")
-students <- read.csv("src4/students/students.csv")
+students <- read.csv("lecture_source/src4/students/students.csv")
 
 #pivot wider for making row values to columns
 students <- pivot_wider(
@@ -116,7 +116,7 @@ students |>
 
 
 library("stringr")
-shows <- read.csv("src4/shows/shows.csv")
+shows <- read.csv("lecture_source/src4/shows/shows.csv")
 
 '
 str_trim()    -> trim spaces from left right

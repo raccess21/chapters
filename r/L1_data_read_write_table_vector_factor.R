@@ -32,13 +32,13 @@ print(paste("Sum votes are:", sumtotal))
 
 #------------------------reading table-------------------------
 votes <- read.table(
-  "votes.csv", 
+  "lecture_source/src1/tabulate/votes.csv", 
   sep = ',', 
   header = TRUE
 )
 
 #inbuilt csv reading functionality
-csvotes = read.csv("votes.csv")
+csvotes = read.csv("lecture_source/src1/tabulate/votes.csv")
 View(csvotes)
 nrow(csvotes)           #number of rows in csvotes
 ncol(csvotes)           #number of cols in csvotes
@@ -74,7 +74,7 @@ csvotes$total <- csvotes$poll + csvotes$mail
 
 
 #---------------------------write csv file-----------------------------------
-write.csv(csvotes, "total.csv", row.names = FALSE)
+write.csv(csvotes, "lecture_out/src1/total.csv", row.names = FALSE)
 
 
 #--------------------------external data------------------------------------
@@ -82,7 +82,7 @@ write.csv(csvotes, "total.csv", row.names = FALSE)
 
 #url <- "https://github.com/fivethirtyeight/data/raw/master/non-voters/nonvoters_data.csv"
 #voters <- read.csv(url)
-voters <- read.csv("voters.csv")
+voters <- read.csv("lecture_source/src1/voters.csv")
 
 #-------------------------special values----------------------------------------
 # inf, -inf       infinity
