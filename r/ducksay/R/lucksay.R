@@ -1,3 +1,0 @@
-lucksay <- function() {
-  "lucky"
-}

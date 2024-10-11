@@ -1,3 +1,0 @@
-# View storms tibble
-
-storms
