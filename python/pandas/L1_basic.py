@@ -8,6 +8,17 @@ print("\nPandas version: ", pd.__version__)
 myvar = pd.Series([1, 7, 2])
 print("\nSeries: \n", myvar)
 
+# named series
+myvar = pd.Series([1, 7, 2], index=["a", "b", "c"])
+print("\nNamed series: \n", myvar)
+
+data = {"a":1, "b":7, "c":2}
+
+myvar = pd.Series(data)
+print("\nNamed series from dict: \n", myvar)
+
+myvar = pd.Series(data, index=["a", "b"])
+print("\nNamed series from dict with index: \n", myvar)
 
 # DataFrame is a 2D data structure, like a 2D array, or a table with rows and columns
 # Create DataFrame from dict
