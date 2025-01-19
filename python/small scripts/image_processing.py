@@ -22,6 +22,7 @@ def remove_metadata(filename, replace=False):
         
     try:
         image.convert("RGB").save(filename)
+        print(f"Removed metadata: {image.filename} -> {filename}")
         return True
     
     except Exception as e:
