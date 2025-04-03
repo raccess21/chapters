@@ -46,10 +46,10 @@ def all_files(directory="./", replace=False):
 
 if __name__ == "__main__":
     # remove metadata from a single file
-    remove_metadata("test.jpg", replace=True)
+    # remove_metadata("test.jpg", replace=True)
 
     # all files in current directory
-    all_files(replace=True)
+    # all_files(replace=True)
 
     # all files in New Folder
-    all_files(directory="New Folder/" ,replace=True)
+    all_files(directory="./" ,replace=True)

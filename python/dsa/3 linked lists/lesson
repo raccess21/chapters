@@ -1,0 +1,24 @@
+Linked Lists vs Arrays
+
+These are some key linked list properties, compared to arrays:
+
+    Linked lists are not allocated to a fixed size in memory like arrays are, so linked lists do not require to move the whole list into a larger memory space when the fixed memory space fills up, like arrays must.
+    Linked list nodes are not laid out one right after the other in memory (contiguously), so linked list nodes do not have to be shifted up or down in memory when nodes are inserted or deleted.
+    Linked list nodes require more memory to store one or more links to other nodes. Array elements do not require that much memory, because array elements do not contain links to other elements.
+    Linked list operations are usually harder to program and require more lines than similar array operations, because programming languages have better built in support for arrays.
+    We must traverse a linked list to find a node at a specific position, but with arrays we can access an element directly by writing myArray[5].
+
+Note: When using arrays in programming languages like Java or Python, even though we do not need to write code to handle when an array fills up its memory space, and we do not have to shift elements up or down in memory when an element is removed or inserted, these things still happen in the background and can cause problems in time critical applications.
+
+
+Time Complexity of Linked Lists Operations
+
+Here we discuss time complexity of linked list operations, and compare these with the time complexity of the array algorithms that we have discussed previously in this tutorial.
+
+Remember that time complexity just says something about the approximate number of operations needed by the algorithm based on a large set of data n, and does not tell us the exact time a specific implementation of an algorithm takes. This means that even though linear search is said to have the same time complexity for arrays as for linked list: O(n), it does not mean they take the same amount of time. The exact time it takes for an algorithm to run depends on programming language, computer hardware, differences in time needed for operations on arrays vs linked lists, and many other things as well.
+
+Linear search for linked lists works the same as for arrays. A list of unsorted values are traversed from the head node until the node with the specific value is found. Time complexity is O(n).
+
+Binary search is not possible for linked lists because the algorithm is based on jumping directly to different array elements, and that is not possible with linked lists.
+
+Sorting algorithms have the same time complexities as for arrays, and these are explained earlier in this tutorial. But remember, sorting algorithms that are based on directly accessing an array element based on an index, do not work on linked lists.
