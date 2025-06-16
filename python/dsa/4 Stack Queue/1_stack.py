@@ -60,17 +60,39 @@ class StackLinkedList:
         
         return self.head.value
     
-    def size(self):
+    def length(self):
         return self.size
 
 
 class QueueLinkedList(StackLinkedList):
     def __init__(self) -> None:
         super().__init__()
+        self.tail = None
 
-    def pop(self):
-        if self.isEmpty():
-            print("Queue is Empty.")
-            return None
-        
-        
+    def push(self, val):
+        newNode = Node(val)
+        if self.tail is None:
+            self.tail = self.head = newNode
+        else:
+            self.tail.next = newNode
+            self.tail = newNode
+        self.size += 1
+    
+node1 = Node(3)
+node2 = Node(5) 
+node3 = Node(13)
+
+stack = StackLinkedList()
+stack.push(3)
+stack.push(5)
+stack.push(13)
+print("Length of stack:", stack.length())
+print(stack.pop(), stack.pop(), stack.pop())        
+
+queue = QueueLinkedList()
+queue.push(3)
+queue.push(5)
+queue.push(13)
+print("Length of queue:", queue.length())
+print(queue.pop(), queue.pop(), queue.pop())        
+

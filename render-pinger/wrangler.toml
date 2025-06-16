@@ -1,0 +1,10 @@
+name = "render-pinger"
+main = "index.js"
+compatibility_date = "2025-06-07"
+
+[triggers]
+crons = ["*/14 * * * *"]
+
+[vars]
+BACKEND_URL = "your_backend_url;your_backend_url2;and_so_on"
+
