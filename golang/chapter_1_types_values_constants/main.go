@@ -13,10 +13,10 @@ func main() {
 	// go run command compiles and runs code after which executable is deleted
 
 	// a simple function call in GO
-	// go_values()
+	go_values()
 	// variables()
 	// constants()
-	operators_types_conversions()
+	// operators_types_conversions()
 }
 
 // GO VALUES
@@ -43,6 +43,9 @@ func variables() {
 
 	// declaration without assignment
 	var suspense int16
+
+	// int and string have default values 0 and '' respectively
+	// boolean and float are required to be defined
 
 	// variable type can also be inferred based on initialisation
 	age := 1
@@ -93,4 +96,11 @@ func operators_types_conversions() {
 	// + concatenates string, len counts bytes used for saving that string
 	println(name1, name2, "total length:", len(name1+name2))
 
+	i := 1
+	i++
+	i--
+	i += 5
+	i -= 5
+	i *= 7
+	i /= 7
 }
